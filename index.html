@@ -415,6 +415,13 @@
             padding: 0.15rem 0.55rem;
             margin-top: 0.3rem;
             font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        a.prog-venue:hover {
+            background: var(--primary-teal);
+            color: white;
         }
 
         .prog-pdf-link {
@@ -927,29 +934,81 @@
             background: var(--bg-light);
         }
 
-        .venues-list {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
+        .venues-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
             margin-top: 2.5rem;
         }
 
-        .venue-tag {
+        .venue-card {
             background: white;
-            border: 2px solid rgba(32, 178, 170, 0.3);
-            color: var(--primary-teal);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 500;
-            font-size: 0.95rem;
+            border: 1px solid rgba(32,178,170,0.2);
+            border-radius: 14px;
+            padding: 1.4rem 1.5rem;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .venue-card::after {
+            content: '→';
+            position: absolute;
+            bottom: 1.1rem;
+            right: 1.2rem;
+            font-size: 1rem;
+            color: var(--accent-turquoise);
+            opacity: 0;
+            transform: translateX(-6px);
             transition: all 0.3s ease;
         }
 
-        .venue-tag:hover {
-            background: var(--primary-teal);
-            color: white;
-            border-color: var(--primary-teal);
+        .venue-card:hover {
+            border-color: var(--accent-turquoise);
+            box-shadow: 0 6px 24px rgba(32,178,170,0.15);
+            transform: translateY(-3px);
+        }
+
+        .venue-card:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .venue-card-icon {
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        .venue-card-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .venue-card-addr {
+            font-size: 0.78rem;
+            color: #777;
+            line-height: 1.4;
+        }
+
+        .venue-card-maps {
+            font-size: 0.75rem;
+            color: var(--primary-teal);
+            font-weight: 600;
+            margin-top: 0.3rem;
+        }
+
+        @media (max-width: 860px) {
+            .venues-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 500px) {
+            .venues-grid { grid-template-columns: 1fr; }
         }
 
         /* Footer */
@@ -1230,11 +1289,50 @@
     <section class="venues">
         <div class="container">
             <h2 class="section-title">Locais do Festival</h2>
-            <div class="venues-list">
-                <span class="venue-tag">🏛️ Casa Scliar</span>
-                <span class="venue-tag">🎨 MART</span>
-                <span class="venue-tag">🌳 Praças Públicas</span>
-                <span class="venue-tag">🏫 Escolas Públicas</span>
+            <div class="venues-grid">
+
+                <a class="venue-card" href="https://www.google.com/maps/search/?api=1&query=Casa+Scliar+Rua+Marechal+Floriano+253+Cabo+Frio+RJ" target="_blank" rel="noopener">
+                    <div class="venue-card-icon">🎬</div>
+                    <div class="venue-card-name">Casa Scliar</div>
+                    <div class="venue-card-addr">R. Marechal Floriano, 253 — São Bento, Cabo Frio</div>
+                    <div class="venue-card-maps">📍 Ver no Google Maps</div>
+                </a>
+
+                <a class="venue-card" href="https://www.google.com/maps/search/?api=1&query=MART+Museu+Arte+Religiosa+Tradicional+Largo+Santo+Antonio+Cabo+Frio+RJ" target="_blank" rel="noopener">
+                    <div class="venue-card-icon">🏛️</div>
+                    <div class="venue-card-name">MART</div>
+                    <div class="venue-card-addr">Largo de Santo Antônio, s/n — Centro, Cabo Frio</div>
+                    <div class="venue-card-maps">📍 Ver no Google Maps</div>
+                </a>
+
+                <a class="venue-card" href="https://www.google.com/maps/search/?api=1&query=Largo+Sao+Benedito+Passagem+Cabo+Frio+RJ" target="_blank" rel="noopener">
+                    <div class="venue-card-icon">🌟</div>
+                    <div class="venue-card-name">Praça São Benedito</div>
+                    <div class="venue-card-addr">Largo de São Benedito — Passagem, Cabo Frio</div>
+                    <div class="venue-card-maps">📍 Ver no Google Maps</div>
+                </a>
+
+                <a class="venue-card" href="https://www.google.com/maps/search/?api=1&query=UERJ+Campus+Cabo+Frio+Rua+Arizio+Gomes+da+Costa+186+Jardim+Flamboyant" target="_blank" rel="noopener">
+                    <div class="venue-card-icon">🎓</div>
+                    <div class="venue-card-name">UERJ — Campus Cabo Frio</div>
+                    <div class="venue-card-addr">R. Arízio Gomes da Costa, 186 — Jardim Flamboyant</div>
+                    <div class="venue-card-maps">📍 Ver no Google Maps</div>
+                </a>
+
+                <a class="venue-card" href="https://www.google.com/maps/search/?api=1&query=UVA+Universidade+Veiga+de+Almeida+Estrada+Perynas+Cabo+Frio+RJ" target="_blank" rel="noopener">
+                    <div class="venue-card-icon">🏫</div>
+                    <div class="venue-card-name">UVA — Veiga de Almeida</div>
+                    <div class="venue-card-addr">Estrada Perynas, s/n — Cabo Frio</div>
+                    <div class="venue-card-maps">📍 Ver no Google Maps</div>
+                </a>
+
+                <a class="venue-card" href="https://www.google.com/maps/search/?api=1&query=Bosque+Gargoa+Tamoios+Cabo+Frio+RJ" target="_blank" rel="noopener">
+                    <div class="venue-card-icon">🌳</div>
+                    <div class="venue-card-name">Gargoá — Tamoios</div>
+                    <div class="venue-card-addr">Bosque do Gargoá — Tamoios, Cabo Frio</div>
+                    <div class="venue-card-maps">📍 Ver no Google Maps</div>
+                </a>
+
             </div>
         </div>
     </section>
@@ -1257,17 +1355,17 @@
                         <div class="prog-event">
                             <div class="prog-event-time">15h – 18h</div>
                             <div class="prog-event-desc">Mostra 1</div>
-                            <span class="prog-venue">Cine Scliar</span>
+                            <a class="prog-venue" href="https://www.google.com/maps/search/?api=1&query=Casa+Scliar+Rua+Marechal+Floriano+253+Cabo+Frio+RJ" target="_blank" rel="noopener">📍 Cine Scliar</a>
                         </div>
                         <div class="prog-event">
                             <div class="prog-event-time">15h – 18h</div>
                             <div class="prog-event-desc">Mostra 2</div>
-                            <span class="prog-venue">UERJ</span>
+                            <a class="prog-venue" href="https://www.google.com/maps/search/?api=1&query=UERJ+Campus+Cabo+Frio+Rua+Arizio+Gomes+da+Costa+186" target="_blank" rel="noopener">📍 UERJ</a>
                         </div>
                         <div class="prog-event highlight">
                             <div class="prog-event-time">19h – 22h</div>
                             <div class="prog-event-desc">🎉 Abertura do FINCCA — banda musical, atração circense do Circolo e telão com vídeos dos filmes</div>
-                            <span class="prog-venue">Praça São Benedito</span>
+                            <a class="prog-venue" href="https://www.google.com/maps/search/?api=1&query=Largo+Sao+Benedito+Passagem+Cabo+Frio+RJ" target="_blank" rel="noopener">📍 Praça São Benedito</a>
                         </div>
                     </div>
                 </div>
@@ -1283,22 +1381,22 @@
                         <div class="prog-event">
                             <div class="prog-event-time">10h – 11h30</div>
                             <div class="prog-event-desc">Mesa 1 de debate</div>
-                            <span class="prog-venue">Mart</span>
+                            <a class="prog-venue" href="https://www.google.com/maps/search/?api=1&query=MART+Museu+Arte+Religiosa+Tradicional+Largo+Santo+Antonio+Cabo+Frio" target="_blank" rel="noopener">📍 MART</a>
                         </div>
                         <div class="prog-event">
                             <div class="prog-event-time">15h – 20h</div>
                             <div class="prog-event-desc">Mostra 3 + Mesa 2 de debate</div>
-                            <span class="prog-venue">Cine Scliar</span>
+                            <a class="prog-venue" href="https://www.google.com/maps/search/?api=1&query=Casa+Scliar+Rua+Marechal+Floriano+253+Cabo+Frio+RJ" target="_blank" rel="noopener">📍 Cine Scliar</a>
                         </div>
                         <div class="prog-event">
                             <div class="prog-event-time">15h – 20h</div>
                             <div class="prog-event-desc">Mostra 4 + Mesa 3 de debate</div>
-                            <span class="prog-venue">UERJ</span>
+                            <a class="prog-venue" href="https://www.google.com/maps/search/?api=1&query=UERJ+Campus+Cabo+Frio+Rua+Arizio+Gomes+da+Costa+186" target="_blank" rel="noopener">📍 UERJ</a>
                         </div>
                         <div class="prog-event">
                             <div class="prog-event-time">18h30 – 21h30</div>
                             <div class="prog-event-desc">Mostra 4</div>
-                            <span class="prog-venue">UVA</span>
+                            <a class="prog-venue" href="https://www.google.com/maps/search/?api=1&query=UVA+Universidade+Veiga+de+Almeida+Estrada+Perynas+Cabo+Frio" target="_blank" rel="noopener">📍 UVA</a>
                         </div>
                     </div>
                 </div>
@@ -1314,22 +1412,22 @@
                         <div class="prog-event">
                             <div class="prog-event-time">10h – 11h30</div>
                             <div class="prog-event-desc">Mesa 4 de debate</div>
-                            <span class="prog-venue">Mart</span>
+                            <a class="prog-venue" href="https://www.google.com/maps/search/?api=1&query=MART+Museu+Arte+Religiosa+Tradicional+Largo+Santo+Antonio+Cabo+Frio" target="_blank" rel="noopener">📍 MART</a>
                         </div>
                         <div class="prog-event">
                             <div class="prog-event-time">13h – 18h</div>
                             <div class="prog-event-desc">Mostra 5 + Mesa 5 de debate</div>
-                            <span class="prog-venue">UVA</span>
+                            <a class="prog-venue" href="https://www.google.com/maps/search/?api=1&query=UVA+Universidade+Veiga+de+Almeida+Estrada+Perynas+Cabo+Frio" target="_blank" rel="noopener">📍 UVA</a>
                         </div>
                         <div class="prog-event">
                             <div class="prog-event-time">14h – 22h</div>
                             <div class="prog-event-desc">Mostra 6 e 7</div>
-                            <span class="prog-venue">Cine Scliar</span>
+                            <a class="prog-venue" href="https://www.google.com/maps/search/?api=1&query=Casa+Scliar+Rua+Marechal+Floriano+253+Cabo+Frio+RJ" target="_blank" rel="noopener">📍 Cine Scliar</a>
                         </div>
                         <div class="prog-event">
                             <div class="prog-event-time">18h – 22h</div>
                             <div class="prog-event-desc">Mostra Infantil + Mostra 8</div>
-                            <span class="prog-venue">Gargoá, Tamoios</span>
+                            <a class="prog-venue" href="https://www.google.com/maps/search/?api=1&query=Bosque+Gargoa+Tamoios+Cabo+Frio+RJ" target="_blank" rel="noopener">📍 Gargoá, Tamoios</a>
                         </div>
                     </div>
                 </div>
@@ -1349,7 +1447,7 @@
                         <div class="prog-event">
                             <div class="prog-event-time">14h – 16h</div>
                             <div class="prog-event-desc">Mostra 9</div>
-                            <span class="prog-venue">Cine Scliar</span>
+                            <a class="prog-venue" href="https://www.google.com/maps/search/?api=1&query=Casa+Scliar+Rua+Marechal+Floriano+253+Cabo+Frio+RJ" target="_blank" rel="noopener">📍 Cine Scliar</a>
                         </div>
                         <div class="prog-event highlight">
                             <div class="prog-event-time">17h</div>
@@ -1408,9 +1506,6 @@
                 <div class="edital-actions">
                     <a href="chamamento-fincca-2026.pdf" download class="edital-cta edital-cta--download">
                         📄 Baixar Edital Completo
-                    </a>
-                    <a href="mailto:fincca2026@gmail.com?subject=Inscrição%20de%20Filme%20-%20FINCCA%202026" class="edital-cta edital-cta--secondary">
-                        ✉️ Enviar Inscrição
                     </a>
                 </div>
 
