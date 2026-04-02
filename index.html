@@ -346,6 +346,164 @@
             font-size: 0.95rem;
         }
 
+        /* Edital Section */
+        .edital {
+            padding: 7rem 2rem;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(32, 178, 170, 0.15) 0%, transparent 60%),
+                linear-gradient(170deg, #001a2e 0%, #002a40 50%, #001a2e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .edital::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2320b2aa' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .edital-inner {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .edital-badge {
+            display: inline-block;
+            background: var(--accent-beige);
+            color: #001a2e;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            animation: pulse-badge 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(232, 192, 138, 0.5); }
+            50%       { box-shadow: 0 0 0 10px rgba(232, 192, 138, 0); }
+        }
+
+        .edital-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .edital-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.75);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .edital-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .edital-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(32, 178, 170, 0.25);
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .edital-card:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(32, 178, 170, 0.5);
+            transform: translateY(-4px);
+        }
+
+        .edital-card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .edital-card h4 {
+            color: var(--accent-beige);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .edital-card p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+
+        .edital-deadline {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(232, 192, 138, 0.3);
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .deadline-label {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .deadline-date {
+            color: var(--accent-beige);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .edital-cta {
+            display: inline-block;
+            padding: 16px 48px;
+            background: linear-gradient(135deg, var(--accent-turquoise), var(--primary-teal));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(32, 178, 170, 0.35);
+            display: block;
+            width: fit-content;
+            margin: 0 auto 1.5rem;
+        }
+
+        .edital-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(32, 178, 170, 0.5);
+        }
+
+        .edital-note {
+            color: rgba(255,255,255,0.45);
+            font-size: 0.85rem;
+        }
+
+        .edital-note a {
+            color: var(--accent-beige);
+            text-decoration: none;
+        }
+
+        .edital-note a:hover {
+            color: white;
+        }
+
         /* Awards Section */
         .awards {
             padding: 6rem 2rem;
@@ -587,6 +745,12 @@
             }
         }
 
+        @media (max-width: 900px) {
+            .edital-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .hamburger {
                 display: flex;
@@ -648,8 +812,18 @@
         @media (max-width: 480px) {
             .awards-grid,
             .stats-grid,
-            .highlights {
+            .highlights,
+            .edital-cards {
                 grid-template-columns: 1fr;
+            }
+
+            .edital-title {
+                font-size: 2.2rem;
+            }
+
+            .edital-deadline {
+                flex-direction: column;
+                gap: 0.25rem;
             }
 
             .hero h1 {
@@ -677,6 +851,7 @@
             <ul class="nav-links" id="nav-links">
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#programacao">Programação</a></li>
+                <li><a href="#edital">Edital</a></li>
                 <li><a href="#premiacoes">Premiações</a></li>
                 <li><a href="#atividades">Atividades</a></li>
                 <li><a href="#contato">Contato</a></li>
@@ -816,6 +991,56 @@
                         homenagem a cineastas importantes para a história do cinema.
                     </p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Edital Section -->
+    <section class="edital" id="edital">
+        <div class="container">
+            <div class="edital-inner">
+                <div class="edital-badge">Inscrições Abertas</div>
+                <h2 class="edital-title">Inscreva seu Filme</h2>
+                <p class="edital-subtitle">
+                    Buscamos obras que celebrem o mar em todas as suas dimensões —
+                    ficção, documentário, animação e experimental.
+                </p>
+
+                <div class="edital-cards">
+                    <div class="edital-card">
+                        <div class="edital-card-icon">🌍</div>
+                        <h4>Mostra Internacional</h4>
+                        <p>Longas e curtas de qualquer nacionalidade com temática do mar</p>
+                    </div>
+                    <div class="edital-card">
+                        <div class="edital-card-icon">🌎</div>
+                        <h4>Mostra Latino-Americana</h4>
+                        <p>Produções de países da América Latina e Caribe</p>
+                    </div>
+                    <div class="edital-card">
+                        <div class="edital-card-icon">🎠</div>
+                        <h4>Mostra Infantil</h4>
+                        <p>Animações e filmes para o público infantojuvenil</p>
+                    </div>
+                    <div class="edital-card">
+                        <div class="edital-card-icon">📽️</div>
+                        <h4>Curta-Metragem</h4>
+                        <p>Obras de até 15 minutos de qualquer gênero</p>
+                    </div>
+                </div>
+
+                <div class="edital-deadline">
+                    <span class="deadline-label">Prazo de inscrição</span>
+                    <span class="deadline-date">30 de Março de 2026</span>
+                </div>
+
+                <a href="mailto:fincca2026@gmail.com?subject=Inscrição%20de%20Filme%20-%20FINCCA%202026" class="edital-cta">
+                    Enviar Inscrição
+                </a>
+
+                <p class="edital-note">
+                    Inscrições gratuitas · Dúvidas: <a href="mailto:fincca2026@gmail.com">fincca2026@gmail.com</a>
+                </p>
             </div>
         </div>
     </section>
