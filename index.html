@@ -1251,8 +1251,7 @@
 
             <!-- FILME -->
             <div class="inscricao-form active" id="form-wrap-filme">
-                <iframe name="iframe_filme" style="display:none"></iframe>
-                <form class="gform" action="https://docs.google.com/forms/d/e/1FAIpQLScfV4D57hjvPjdjJo8lM1VYdDQfmBGP73Xm2sAmSXIjdC2TiQ/formResponse" method="POST" target="iframe_filme" onsubmit="formSubmit(this, 'filme')">
+                <form class="gform" onsubmit="formSubmit(event, 'filme')">
                     <div class="form-grid-2">
                         <div class="form-group">
                             <label>Nome do Filme *</label>
@@ -1304,21 +1303,21 @@
                         </div>
                     </div>
                     <div class="form-upload-note">
-                        📎 <strong>2 fotos do filme</strong> — após o envio, você receberá um link para upload das imagens.
+                        📎 <strong>2 fotos do filme</strong> — o formulário do Google já abrirá com seus dados preenchidos. Anexe as fotos lá e clique em Enviar.
                     </div>
-                    <button type="submit" class="form-submit">Enviar Inscrição de Filme</button>
+                    <button type="submit" class="form-submit">Continuar no Google Forms →</button>
                 </form>
                 <div class="form-success" id="success-filme">
                     <div class="success-icon">✅</div>
-                    <h3>Inscrição enviada!</h3>
-                    <p>Recebemos os dados do seu filme. Caso precise enviar fotos adicionais, <a href="https://docs.google.com/forms/d/e/1FAIpQLScfV4D57hjvPjdjJo8lM1VYdDQfmBGP73Xm2sAmSXIjdC2TiQ/viewform" target="_blank">clique aqui para acessar o formulário completo</a>.</p>
+                    <h3>Quase lá!</h3>
+                    <p>O Google Forms abriu numa nova aba com seus dados já preenchidos. <strong>Anexe as fotos e clique em Enviar</strong> para concluir a inscrição.</p>
+                    <p style="margin-top:0.75rem;font-size:0.9rem;color:#666;">A aba não abriu? <a href="https://docs.google.com/forms/d/e/1FAIpQLScfV4D57hjvPjdjJo8lM1VYdDQfmBGP73Xm2sAmSXIjdC2TiQ/viewform" target="_blank">Clique aqui</a>.</p>
                 </div>
             </div>
 
             <!-- FOTOGRAFIA -->
             <div class="inscricao-form" id="form-wrap-foto">
-                <iframe name="iframe_foto" style="display:none"></iframe>
-                <form class="gform" action="https://docs.google.com/forms/d/e/1FAIpQLSfJ7xFodWUasqKzGH0ttCMvA_Mig6YdjYvRd1fnUI6gwFLRFQ/formResponse" method="POST" target="iframe_foto" onsubmit="formSubmit(this, 'foto')">
+                <form class="gform" onsubmit="formSubmit(event, 'foto')">
                     <div class="form-grid-2">
                         <div class="form-group">
                             <label>Nome da Fotografia *</label>
@@ -1338,21 +1337,21 @@
                         </div>
                     </div>
                     <div class="form-upload-note">
-                        📎 <strong>Upload da fotografia</strong> — após o envio dos dados, você será redirecionado para anexar a imagem.
+                        📎 <strong>Upload da fotografia</strong> — o formulário do Google já abrirá com seus dados preenchidos. Anexe a imagem lá e clique em Enviar.
                     </div>
-                    <button type="submit" class="form-submit">Enviar Dados e Fazer Upload</button>
+                    <button type="submit" class="form-submit">Continuar no Google Forms →</button>
                 </form>
                 <div class="form-success" id="success-foto">
                     <div class="success-icon">✅</div>
-                    <h3>Dados recebidos!</h3>
-                    <p>Agora faça o upload da sua fotografia: <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJ7xFodWUasqKzGH0ttCMvA_Mig6YdjYvRd1fnUI6gwFLRFQ/viewform" target="_blank">Clique aqui para enviar a foto →</a></p>
+                    <h3>Quase lá!</h3>
+                    <p>O Google Forms abriu numa nova aba com seus dados já preenchidos. <strong>Anexe a fotografia e clique em Enviar</strong> para concluir a inscrição.</p>
+                    <p style="margin-top:0.75rem;font-size:0.9rem;color:#666;">A aba não abriu? <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJ7xFodWUasqKzGH0ttCMvA_Mig6YdjYvRd1fnUI6gwFLRFQ/viewform" target="_blank">Clique aqui</a>.</p>
                 </div>
             </div>
 
             <!-- POESIA -->
             <div class="inscricao-form" id="form-wrap-poesia">
-                <iframe name="iframe_poesia" style="display:none"></iframe>
-                <form class="gform" action="https://docs.google.com/forms/d/e/1FAIpQLSf9XcOmbUv7uFWIcowfda-s3u5vz7P9FQ-LC8nkZn27wpuV2Q/formResponse" method="POST" target="iframe_poesia" onsubmit="formSubmit(this, 'poesia')">
+                <form class="gform" onsubmit="formSubmit(event, 'poesia')">
                     <div class="form-grid-2">
                         <div class="form-group">
                             <label>Nome da Poesia *</label>
@@ -1372,14 +1371,15 @@
                         </div>
                     </div>
                     <div class="form-upload-note">
-                        📎 <strong>Upload da poesia</strong> — após o envio dos dados, você será redirecionado para anexar o arquivo.
+                        📎 <strong>Upload da poesia</strong> — o formulário do Google já abrirá com seus dados preenchidos. Anexe o arquivo lá e clique em Enviar.
                     </div>
-                    <button type="submit" class="form-submit">Enviar Dados e Fazer Upload</button>
+                    <button type="submit" class="form-submit">Continuar no Google Forms →</button>
                 </form>
                 <div class="form-success" id="success-poesia">
                     <div class="success-icon">✅</div>
-                    <h3>Dados recebidos!</h3>
-                    <p>Agora faça o upload da sua poesia: <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9XcOmbUv7uFWIcowfda-s3u5vz7P9FQ-LC8nkZn27wpuV2Q/viewform" target="_blank">Clique aqui para enviar o arquivo →</a></p>
+                    <h3>Quase lá!</h3>
+                    <p>O Google Forms abriu numa nova aba com seus dados já preenchidos. <strong>Anexe o arquivo e clique em Enviar</strong> para concluir a inscrição.</p>
+                    <p style="margin-top:0.75rem;font-size:0.9rem;color:#666;">A aba não abriu? <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9XcOmbUv7uFWIcowfda-s3u5vz7P9FQ-LC8nkZn27wpuV2Q/viewform" target="_blank">Clique aqui</a>.</p>
                 </div>
             </div>
         </div>
@@ -1508,12 +1508,32 @@
             document.getElementById('form-wrap-' + category).classList.add('active');
         }
 
-        // Form submission handler — show success state
-        function formSubmit(form, category) {
-            setTimeout(function () {
-                form.closest('.inscricao-form').querySelector('.form-success').style.display = 'block';
-                form.style.display = 'none';
-            }, 1000);
+        // Form submission — collect data, pre-fill Google Forms URL, open in new tab
+        function formSubmit(event, category) {
+            event.preventDefault();
+            var form = event.target;
+
+            // Build query string from all named inputs/textareas
+            var params = [];
+            form.querySelectorAll('[name]').forEach(function(el) {
+                if (el.name && el.value) {
+                    params.push(encodeURIComponent(el.name) + '=' + encodeURIComponent(el.value));
+                }
+            });
+
+            var bases = {
+                'filme':   'https://docs.google.com/forms/d/e/1FAIpQLScfV4D57hjvPjdjJo8lM1VYdDQfmBGP73Xm2sAmSXIjdC2TiQ/viewform',
+                'foto':    'https://docs.google.com/forms/d/e/1FAIpQLSfJ7xFodWUasqKzGH0ttCMvA_Mig6YdjYvRd1fnUI6gwFLRFQ/viewform',
+                'poesia':  'https://docs.google.com/forms/d/e/1FAIpQLSf9XcOmbUv7uFWIcowfda-s3u5vz7P9FQ-LC8nkZn27wpuV2Q/viewform'
+            };
+
+            var url = bases[category] + (params.length ? '?' + params.join('&') : '');
+            window.open(url, '_blank');
+
+            // Show success message
+            var wrap = form.closest('.inscricao-form');
+            form.style.display = 'none';
+            wrap.querySelector('.form-success').style.display = 'block';
         }
 
         const hamburger = document.getElementById('hamburger');
