@@ -1096,19 +1096,31 @@
 
         /* Apoiadores */
         .apoiadores {
+            background: #1a2e3d;
+            border-top: 1px solid rgba(0,61,92,0.12);
+        }
+
+        .barra-logos-img {
+            display: block;
+            width: 100%;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .apoio-institucional {
             background: #f0ede8;
-            padding: 3rem 2rem;
-            border-top: 1px solid rgba(0,61,92,0.08);
+            padding: 1.75rem 2rem;
         }
 
         .apoiadores-title {
             text-align: center;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: #999;
-            margin-bottom: 1.75rem;
+            color: #aaa;
+            margin-bottom: 1rem;
         }
 
         .apoiadores-list {
@@ -1116,35 +1128,19 @@
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 1.5rem 3rem;
-            max-width: 900px;
+            gap: 0.6rem 1rem;
+            max-width: 860px;
             margin: 0 auto;
         }
 
-        .apoiador-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.3rem;
-            text-align: center;
-        }
-
-        .apoiador-icon {
-            font-size: 1.6rem;
-        }
-
-        .apoiador-name {
-            font-size: 0.78rem;
-            font-weight: 600;
+        .apoiador-tag {
+            font-size: 0.8rem;
+            font-weight: 500;
             color: var(--primary-dark);
-            line-height: 1.3;
-        }
-
-        .apoiador-tipo {
-            font-size: 0.68rem;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
+            background: white;
+            border: 1px solid rgba(0,61,92,0.12);
+            border-radius: 50px;
+            padding: 0.3rem 0.9rem;
         }
 
         /* Social no header */
@@ -1876,47 +1872,15 @@
 
     <!-- Apoiadores -->
     <section class="apoiadores">
-        <p class="apoiadores-title">Realização &amp; Apoio Institucional</p>
-        <div class="apoiadores-list">
-            <div class="apoiador-item">
-                <div class="apoiador-icon">🤝</div>
-                <div class="apoiador-name">Associação BEM QUERER</div>
-                <div class="apoiador-tipo">Realização</div>
-            </div>
-            <div class="apoiador-item">
-                <div class="apoiador-icon">🏛️</div>
-                <div class="apoiador-name">SECEC</div>
-                <div class="apoiador-tipo">Apoio — Secretaria de Cultura e Economia Criativa</div>
-            </div>
-            <div class="apoiador-item">
-                <div class="apoiador-icon">⚖️</div>
-                <div class="apoiador-name">Dep. Flavio Serafini</div>
-                <div class="apoiador-tipo">Emenda Impositiva nº 2565/2025</div>
-            </div>
-            <div class="apoiador-item">
-                <div class="apoiador-icon">🎞️</div>
-                <div class="apoiador-name">Cinemateca Brasileira</div>
-                <div class="apoiador-tipo">Apoio Institucional</div>
-            </div>
-            <div class="apoiador-item">
-                <div class="apoiador-icon">🎓</div>
-                <div class="apoiador-name">UERJ</div>
-                <div class="apoiador-tipo">Apoio Institucional</div>
-            </div>
-            <div class="apoiador-item">
-                <div class="apoiador-icon">🏫</div>
-                <div class="apoiador-name">UVA</div>
-                <div class="apoiador-tipo">Apoio Institucional</div>
-            </div>
-            <div class="apoiador-item">
-                <div class="apoiador-icon">🎨</div>
-                <div class="apoiador-name">MART</div>
-                <div class="apoiador-tipo">Apoio Institucional</div>
-            </div>
-            <div class="apoiador-item">
-                <div class="apoiador-icon">🎬</div>
-                <div class="apoiador-name">Casa Museu Carlos Scliar</div>
-                <div class="apoiador-tipo">Apoio Institucional</div>
+        <img src="barra-logos.png" alt="Realização: Associação Bem Querer · Apoio: Flavio Serafini, SECEC, Governo do Estado do Rio de Janeiro" class="barra-logos-img">
+        <div class="apoio-institucional">
+            <p class="apoiadores-title">Apoio Institucional</p>
+            <div class="apoiadores-list">
+                <span class="apoiador-tag">🎞️ Cinemateca Brasileira</span>
+                <span class="apoiador-tag">🎓 UERJ</span>
+                <span class="apoiador-tag">🏫 UVA — Veiga de Almeida</span>
+                <span class="apoiador-tag">🏛️ MART</span>
+                <span class="apoiador-tag">🎬 Casa Museu Carlos Scliar</span>
             </div>
         </div>
     </section>
