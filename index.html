@@ -346,6 +346,171 @@
             font-size: 0.95rem;
         }
 
+        /* Inscricoes Section */
+        .inscricoes {
+            padding: 6rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .inscricoes-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+        }
+
+        .inscricao-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .inscricao-tab {
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            border: 2px solid rgba(0,131,143,0.3);
+            background: white;
+            color: var(--primary-teal);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .inscricao-tab:hover,
+        .inscricao-tab.active {
+            background: linear-gradient(135deg, var(--primary-teal), var(--accent-turquoise));
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 6px 20px rgba(0,131,143,0.3);
+        }
+
+        .inscricao-form {
+            display: none;
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 40px rgba(0,61,92,0.1);
+            max-width: 860px;
+            margin: 0 auto;
+            animation: fadeUp 0.4s ease;
+        }
+
+        .inscricao-form.active { display: block; }
+
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-full { grid-column: 1 / -1; }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            letter-spacing: 0.02em;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.75rem 1rem;
+            border: 1.5px solid #dde4e8;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: #fafcfd;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            outline: none;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-turquoise);
+            box-shadow: 0 0 0 3px rgba(32,178,170,0.12);
+            background: white;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #aab5bc;
+        }
+
+        .form-upload-note {
+            background: rgba(32,178,170,0.07);
+            border: 1px solid rgba(32,178,170,0.25);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            font-size: 0.9rem;
+            color: var(--primary-teal);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary-teal), var(--accent-turquoise));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,131,143,0.3);
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,131,143,0.4);
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .form-success.visible { display: block; }
+
+        .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+        .form-success h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-dark);
+            font-size: 1.6rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .form-success p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .form-success a {
+            color: var(--primary-teal);
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .form-grid-2 { grid-template-columns: 1fr; }
+            .inscricao-form { padding: 1.5rem; }
+        }
+
         /* Edital Section */
         .edital {
             padding: 7rem 2rem;
@@ -873,6 +1038,7 @@
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#programacao">Programação</a></li>
                 <li><a href="#edital">Edital</a></li>
+                <li><a href="#inscricoes">Inscrições</a></li>
                 <li><a href="#premiacoes">Premiações</a></li>
                 <li><a href="#atividades">Atividades</a></li>
                 <li><a href="#contato">Contato</a></li>
@@ -1071,6 +1237,154 @@
         </div>
     </section>
 
+    <!-- Inscricoes Section -->
+    <section class="inscricoes" id="inscricoes">
+        <div class="container">
+            <h2 class="section-title">Inscrições</h2>
+            <p class="inscricoes-subtitle">Escolha a categoria e preencha o formulário abaixo</p>
+
+            <div class="inscricao-tabs">
+                <button class="inscricao-tab active" onclick="showInscricao('filme', this)">🎬 Filme</button>
+                <button class="inscricao-tab" onclick="showInscricao('foto', this)">📷 Fotografia</button>
+                <button class="inscricao-tab" onclick="showInscricao('poesia', this)">✍️ Poesia</button>
+            </div>
+
+            <!-- FILME -->
+            <div class="inscricao-form active" id="form-wrap-filme">
+                <iframe name="iframe_filme" style="display:none"></iframe>
+                <form class="gform" action="https://docs.google.com/forms/d/e/1FAIpQLScfV4D57hjvPjdjJo8lM1VYdDQfmBGP73Xm2sAmSXIjdC2TiQ/formResponse" method="POST" target="iframe_filme" onsubmit="formSubmit(this, 'filme')">
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Nome do Filme *</label>
+                            <input type="text" name="entry.2061770677" required placeholder="Título do filme">
+                        </div>
+                        <div class="form-group">
+                            <label>Duração *</label>
+                            <input type="text" name="entry.1616242430" required placeholder="Ex: 1h30min">
+                        </div>
+                        <div class="form-group">
+                            <label>Link privado do Filme *</label>
+                            <input type="url" name="entry.283859499" required placeholder="https://...">
+                        </div>
+                        <div class="form-group">
+                            <label>Senha do link</label>
+                            <input type="text" name="entry.1070619395" placeholder="Se houver senha">
+                        </div>
+                        <div class="form-group">
+                            <label>Nome do responsável *</label>
+                            <input type="text" name="entry.2096084084" required placeholder="Nome completo">
+                        </div>
+                        <div class="form-group">
+                            <label>Função no filme *</label>
+                            <input type="text" name="entry.1854158416" required placeholder="Ex: Diretor(a)">
+                        </div>
+                        <div class="form-group">
+                            <label>E-mail *</label>
+                            <input type="email" name="entry.624036113" required placeholder="seu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone / WhatsApp *</label>
+                            <input type="tel" name="entry.1669702833" required placeholder="(00) 00000-0000">
+                        </div>
+                        <div class="form-group form-full">
+                            <label>Endereço completo *</label>
+                            <input type="text" name="entry.246122338" required placeholder="Rua, número, cidade, estado">
+                        </div>
+                        <div class="form-group form-full">
+                            <label>Sinopse *</label>
+                            <textarea name="entry.644255199" required rows="4" placeholder="Descreva o filme em até 500 palavras"></textarea>
+                        </div>
+                        <div class="form-group form-full">
+                            <label>Equipe técnica</label>
+                            <textarea name="entry.684899988" rows="3" placeholder="Direção, roteiro, fotografia, etc."></textarea>
+                        </div>
+                        <div class="form-group form-full">
+                            <label>Festivais e/ou premiações</label>
+                            <textarea name="entry.682052377" rows="3" placeholder="Liste festivais e prêmios já recebidos"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-upload-note">
+                        📎 <strong>2 fotos do filme</strong> — após o envio, você receberá um link para upload das imagens.
+                    </div>
+                    <button type="submit" class="form-submit">Enviar Inscrição de Filme</button>
+                </form>
+                <div class="form-success" id="success-filme">
+                    <div class="success-icon">✅</div>
+                    <h3>Inscrição enviada!</h3>
+                    <p>Recebemos os dados do seu filme. Caso precise enviar fotos adicionais, <a href="https://docs.google.com/forms/d/e/1FAIpQLScfV4D57hjvPjdjJo8lM1VYdDQfmBGP73Xm2sAmSXIjdC2TiQ/viewform" target="_blank">clique aqui para acessar o formulário completo</a>.</p>
+                </div>
+            </div>
+
+            <!-- FOTOGRAFIA -->
+            <div class="inscricao-form" id="form-wrap-foto">
+                <iframe name="iframe_foto" style="display:none"></iframe>
+                <form class="gform" action="https://docs.google.com/forms/d/e/1FAIpQLSfJ7xFodWUasqKzGH0ttCMvA_Mig6YdjYvRd1fnUI6gwFLRFQ/formResponse" method="POST" target="iframe_foto" onsubmit="formSubmit(this, 'foto')">
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Nome da Fotografia *</label>
+                            <input type="text" name="entry.754092923" required placeholder="Título da sua foto">
+                        </div>
+                        <div class="form-group">
+                            <label>Nome do Fotógrafo/Fotógrafa *</label>
+                            <input type="text" name="entry.2033632270" required placeholder="Nome completo">
+                        </div>
+                        <div class="form-group">
+                            <label>E-mail *</label>
+                            <input type="email" name="entry.1644235236" required placeholder="seu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone / WhatsApp *</label>
+                            <input type="tel" name="entry.1120726378" required placeholder="(00) 00000-0000">
+                        </div>
+                    </div>
+                    <div class="form-upload-note">
+                        📎 <strong>Upload da fotografia</strong> — após o envio dos dados, você será redirecionado para anexar a imagem.
+                    </div>
+                    <button type="submit" class="form-submit">Enviar Dados e Fazer Upload</button>
+                </form>
+                <div class="form-success" id="success-foto">
+                    <div class="success-icon">✅</div>
+                    <h3>Dados recebidos!</h3>
+                    <p>Agora faça o upload da sua fotografia: <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJ7xFodWUasqKzGH0ttCMvA_Mig6YdjYvRd1fnUI6gwFLRFQ/viewform" target="_blank">Clique aqui para enviar a foto →</a></p>
+                </div>
+            </div>
+
+            <!-- POESIA -->
+            <div class="inscricao-form" id="form-wrap-poesia">
+                <iframe name="iframe_poesia" style="display:none"></iframe>
+                <form class="gform" action="https://docs.google.com/forms/d/e/1FAIpQLSf9XcOmbUv7uFWIcowfda-s3u5vz7P9FQ-LC8nkZn27wpuV2Q/formResponse" method="POST" target="iframe_poesia" onsubmit="formSubmit(this, 'poesia')">
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Nome da Poesia *</label>
+                            <input type="text" name="entry.1231213236" required placeholder="Título da sua poesia">
+                        </div>
+                        <div class="form-group">
+                            <label>Nome do Autor/Autora *</label>
+                            <input type="text" name="entry.982203162" required placeholder="Nome completo">
+                        </div>
+                        <div class="form-group">
+                            <label>E-mail *</label>
+                            <input type="email" name="entry.1863265554" required placeholder="seu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone / WhatsApp *</label>
+                            <input type="tel" name="entry.6489977" required placeholder="(00) 00000-0000">
+                        </div>
+                    </div>
+                    <div class="form-upload-note">
+                        📎 <strong>Upload da poesia</strong> — após o envio dos dados, você será redirecionado para anexar o arquivo.
+                    </div>
+                    <button type="submit" class="form-submit">Enviar Dados e Fazer Upload</button>
+                </form>
+                <div class="form-success" id="success-poesia">
+                    <div class="success-icon">✅</div>
+                    <h3>Dados recebidos!</h3>
+                    <p>Agora faça o upload da sua poesia: <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9XcOmbUv7uFWIcowfda-s3u5vz7P9FQ-LC8nkZn27wpuV2Q/viewform" target="_blank">Clique aqui para enviar o arquivo →</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Awards Section -->
     <section class="awards" id="premiacoes">
         <div class="container">
@@ -1184,6 +1498,24 @@
     </footer>
 
     <script>
+        // Inscricoes tab switching
+        function showInscricao(category, btn) {
+            // Deactivate all tabs and forms
+            document.querySelectorAll('.inscricao-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.inscricao-form').forEach(f => f.classList.remove('active'));
+            // Activate selected
+            btn.classList.add('active');
+            document.getElementById('form-wrap-' + category).classList.add('active');
+        }
+
+        // Form submission handler — show success state
+        function formSubmit(form, category) {
+            setTimeout(function () {
+                form.closest('.inscricao-form').querySelector('.form-success').style.display = 'block';
+                form.style.display = 'none';
+            }, 1000);
+        }
+
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('nav-links');
 
