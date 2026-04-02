@@ -469,23 +469,44 @@
             font-size: 0.95rem;
         }
 
-        .edital-cta {
-            display: inline-block;
-            padding: 16px 48px;
-            background: linear-gradient(135deg, var(--accent-turquoise), var(--primary-teal));
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 30px rgba(32, 178, 170, 0.35);
-            display: block;
-            width: fit-content;
-            margin: 0 auto 1.5rem;
+        .edital-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
         }
 
-        .edital-cta:hover {
+        .edital-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 15px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .edital-cta--download {
+            background: linear-gradient(135deg, var(--accent-beige), #c8933a);
+            color: #001a2e;
+            box-shadow: 0 8px 30px rgba(232, 192, 138, 0.35);
+        }
+
+        .edital-cta--download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(232, 192, 138, 0.55);
+        }
+
+        .edital-cta--secondary {
+            background: linear-gradient(135deg, var(--accent-turquoise), var(--primary-teal));
+            color: white;
+            box-shadow: 0 8px 30px rgba(32, 178, 170, 0.3);
+        }
+
+        .edital-cta--secondary:hover {
             transform: translateY(-3px);
             box-shadow: 0 14px 40px rgba(32, 178, 170, 0.5);
         }
@@ -1034,9 +1055,14 @@
                     <span class="deadline-date">30 de Março de 2026</span>
                 </div>
 
-                <a href="mailto:fincca2026@gmail.com?subject=Inscrição%20de%20Filme%20-%20FINCCA%202026" class="edital-cta">
-                    Enviar Inscrição
-                </a>
+                <div class="edital-actions">
+                    <a href="chamamento-fincca-2026.pdf" download class="edital-cta edital-cta--download">
+                        📄 Baixar Edital Completo
+                    </a>
+                    <a href="mailto:fincca2026@gmail.com?subject=Inscrição%20de%20Filme%20-%20FINCCA%202026" class="edital-cta edital-cta--secondary">
+                        ✉️ Enviar Inscrição
+                    </a>
+                </div>
 
                 <p class="edital-note">
                     Inscrições gratuitas · Dúvidas: <a href="mailto:fincca2026@gmail.com">fincca2026@gmail.com</a>
