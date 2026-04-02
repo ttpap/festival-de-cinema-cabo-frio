@@ -1128,9 +1128,29 @@
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 0.6rem 1rem;
-            max-width: 860px;
+            gap: 1.2rem 2rem;
+            max-width: 900px;
             margin: 0 auto;
+        }
+
+        .apoiador-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .apoiador-logo img {
+            height: 52px;
+            width: auto;
+            max-width: 160px;
+            object-fit: contain;
+            filter: none;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .apoiador-logo img:hover {
+            opacity: 1;
         }
 
         .apoiador-tag {
@@ -1880,10 +1900,21 @@
         <div class="apoio-institucional">
             <p class="apoiadores-title">Apoio Institucional</p>
             <div class="apoiadores-list">
-                <span class="apoiador-tag">🎞️ Cinemateca Brasileira</span>
-                <span class="apoiador-tag">🎓 UERJ</span>
-                <span class="apoiador-tag">🏫 UVA — Veiga de Almeida</span>
-                <span class="apoiador-tag">🏛️ MART</span>
+                <div class="apoiador-logo">
+                    <img src="logo-cinemateca.png" alt="Cinemateca Brasileira">
+                </div>
+                <div class="apoiador-logo">
+                    <img src="logo-uerj.png" alt="UERJ">
+                </div>
+                <div class="apoiador-logo">
+                    <img src="logo-uva.png" alt="UVA — Universidade Veiga de Almeida">
+                </div>
+                <div class="apoiador-logo">
+                    <img src="logo-mart.png" alt="MART — Museu de Arte Religiosa e Tradicional">
+                </div>
+                <div class="apoiador-logo">
+                    <img src="logo-secec.png" alt="SECEC — Secretaria de Estado de Cultura e Economia Criativa">
+                </div>
                 <span class="apoiador-tag">🎬 Casa Museu Carlos Scliar</span>
             </div>
         </div>
