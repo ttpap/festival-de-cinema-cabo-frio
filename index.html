@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINCCA - Festival Internacional de Cinema de Cabo Frio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-dark: #003d5c;
+            --primary-teal: #00838f;
+            --accent-turquoise: #20b2aa;
+            --accent-beige: #e8c08a;
+            --text-dark: #1a1a1a;
+            --text-light: #ffffff;
+            --bg-light: #f9f7f4;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, #000e1a 0%, #001f35 100%);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            height: 44px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-beige);
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background:
+                radial-gradient(ellipse 120% 80% at 50% 0%,   #001f3f 0%, transparent 60%),
+                radial-gradient(ellipse 100% 60% at 80% 100%, #003d5c 0%, transparent 55%),
+                radial-gradient(ellipse 80%  50% at 10% 80%,  #00515a 0%, transparent 50%),
+                linear-gradient(170deg, #001a2e 0%, #00384f 40%, #005a6e 75%, #007a82 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Ondas de luz submarinas */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 40% at 30% 60%, rgba(32, 178, 170, 0.18) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 30% at 75% 30%, rgba(0, 131, 143, 0.14) 0%, transparent 55%);
+            pointer-events: none;
+            animation: caustics 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes caustics {
+            from { opacity: 0.6; transform: scale(1); }
+            to   { opacity: 1;   transform: scale(1.08); }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--text-light);
+            max-width: 900px;
+            z-index: 10;
+            position: relative;
+            padding: 2rem;
+            animation: fadeUp 0.9s ease both;
+        }
+
+        .hero-logo-img {
+            width: min(960px, 92vw);
+            height: auto;
+            display: block;
+            margin: 0 auto 2rem;
+            /* strip the black bg from the PNG so it blends naturally */
+            mix-blend-mode: screen;
+        }
+
+        .hero .date {
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            color: var(--accent-beige);
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 36px;
+            background: var(--accent-beige);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(232, 192, 138, 0.25);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(232, 192, 138, 0.45);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: rgba(255,255,255,0.85);
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            box-shadow: none;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255,255,255,0.7);
+            color: white;
+            box-shadow: none;
+        }
+
+        /* Section Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-turquoise), var(--accent-beige));
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            color: #444;
+            line-height: 1.9;
+        }
+
+        .about-text p strong {
+            color: var(--primary-teal);
+            font-weight: 600;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .highlight-card {
+            background: white;
+            padding: 1.75rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-turquoise);
+            box-shadow: 0 4px 15px rgba(0, 131, 143, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .highlight-card h3 {
+            color: var(--primary-teal);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .highlight-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Programming Section */
+        .programming {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .programming-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.75rem;
+            margin-top: 3rem;
+        }
+
+        .mostra-card {
+            background: linear-gradient(135deg, rgba(0, 131, 143, 0.04) 0%, rgba(32, 178, 170, 0.04) 100%);
+            border: 1px solid rgba(32, 178, 170, 0.2);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .mostra-card:hover {
+            border-color: var(--accent-turquoise);
+            box-shadow: 0 8px 30px rgba(32, 178, 170, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .mostra-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .mostra-card p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* Awards Section */
+        .awards {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-teal) 100%);
+            color: white;
+        }
+
+        .awards .section-title {
+            color: white;
+        }
+
+        .awards .section-title::after {
+            background: linear-gradient(90deg, var(--accent-beige), rgba(232, 192, 138, 0.4));
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .award-item {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1.75rem;
+            border-radius: 12px;
+            border: 1px solid rgba(232, 192, 138, 0.25);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .award-item:hover {
+            background: rgba(255, 255, 255, 0.14);
+            transform: translateY(-5px);
+        }
+
+        .award-item h4 {
+            color: var(--accent-beige);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .award-item p {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        /* Activities Section */
+        .activities {
+            padding: 6rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem;
+            margin-top: 3rem;
+        }
+
+        .activity-card {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: white;
+            border-radius: 12px;
+            border-top: 4px solid transparent;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+            transition: all 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(32, 178, 170, 0.18);
+            border-top-color: var(--accent-turquoise);
+        }
+
+        .activity-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .activity-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .activity-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, var(--accent-turquoise) 0%, var(--primary-teal) 100%);
+            color: white;
+            padding: 2.5rem 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            opacity: 0.92;
+            font-weight: 500;
+        }
+
+        /* Venues Section */
+        .venues {
+            padding: 5rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .venues-list {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+
+        .venue-tag {
+            background: white;
+            border: 2px solid rgba(32, 178, 170, 0.3);
+            color: var(--primary-teal);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .venue-tag:hover {
+            background: var(--primary-teal);
+            color: white;
+            border-color: var(--primary-teal);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-beige);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-beige);
+        }
+
+        .footer-link {
+            color: var(--accent-beige);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(232, 192, 138, 0.2);
+            padding-top: 1.5rem;
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .awards-grid,
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary-dark);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 0.75rem 2rem;
+                font-size: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .about-grid,
+            .programming-grid,
+            .activities-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .awards-grid,
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .awards-grid,
+            .stats-grid,
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            footer {
+                padding: 3rem 1.5rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav aria-label="Navegação principal">
+            <div class="logo">
+                <img src="logo.png" alt="FINCCA">
+            </div>
+            <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#programacao">Programação</a></li>
+                <li><a href="#premiacoes">Premiações</a></li>
+                <li><a href="#atividades">Atividades</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="logo.png" alt="FINCCA — Festival Internacional de Cinema de Cabo Frio" class="hero-logo-img">
+            <p class="date">14 — 17 de Maio &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Cabo Frio, RJ</p>
+            <div class="hero-ctas">
+                <a href="#sobre" class="cta-button">Descubra o Festival</a>
+                <a href="#programacao" class="cta-button secondary">Ver Programação</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="sobre">
+        <div class="container">
+            <h2 class="section-title">Sobre o Festival</h2>
+
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        O <strong>FINCCA</strong> é a primeira edição do Festival Internacional de Cinema de Cabo Frio,
+                        um evento pioneiro que celebra a <strong>sétima arte com a temática do Mar</strong>.
+                    </p>
+                    <p>
+                        Realizado em locais culturais como <strong>Casa Scliar, MART e praças públicas</strong>,
+                        o festival promove <strong>acesso democrático à cultura</strong> através de programação
+                        gratuita que amplia o repertório cultural da população.
+                    </p>
+                    <p>
+                        Com <strong>26 filmes gratuitos</strong> distribuídos em diferentes mostras, workshops,
+                        oficinas e atividades formativas, o FINCCA é uma experiência cinematográfica envolvente
+                        e transformadora para a comunidade.
+                    </p>
+                </div>
+
+                <div class="highlights">
+                    <div class="highlight-card">
+                        <h3>📽️ 26 Filmes</h3>
+                        <p>16 longas-metragens e 10 curtas de diversas nacionalidades</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h3>🎬 4 Mostras</h3>
+                        <p>Internacional, Latino-Americana, Infantil e Grandes Clássicos</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h3>💰 Entrada Franca</h3>
+                        <p>Todos os eventos são 100% gratuitos</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h3>🌍 Internacional</h3>
+                        <p>Cineastas e profissionais do audiovisual do Brasil e mundo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>14–17</h3>
+                    <p>Maio de 2026</p>
+                </div>
+                <div class="stat-item">
+                    <h3>26</h3>
+                    <p>Filmes selecionados</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4</h3>
+                    <p>Mostras temáticas</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Gratuito e acessível</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venues Section -->
+    <section class="venues">
+        <div class="container">
+            <h2 class="section-title">Locais do Festival</h2>
+            <div class="venues-list">
+                <span class="venue-tag">🏛️ Casa Scliar</span>
+                <span class="venue-tag">🎨 MART</span>
+                <span class="venue-tag">🌳 Praças Públicas</span>
+                <span class="venue-tag">🏫 Escolas Públicas</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programming Section -->
+    <section class="programming" id="programacao">
+        <div class="container">
+            <h2 class="section-title">Programação</h2>
+
+            <div class="programming-grid">
+                <div class="mostra-card">
+                    <h3>🌟 Mostra Internacional</h3>
+                    <p>
+                        Competitiva com os melhores filmes selecionados do mundo.
+                        Filmes com temática do mar de diversas nações em busca do
+                        Grande Prêmio do Júri Tartaruga-Aruanã.
+                    </p>
+                </div>
+
+                <div class="mostra-card">
+                    <h3>🌎 Mostra Latino-Americana</h3>
+                    <p>
+                        Célula competitiva que valoriza a produção audiovisual da América Latina,
+                        promovendo intercâmbio cultural e reconhecimento de talentos regionais.
+                    </p>
+                </div>
+
+                <div class="mostra-card">
+                    <h3>🎠 Mostra Infantil</h3>
+                    <p>
+                        Seleção de animações e filmes infantis de qualidade que
+                        promovem inclusão cultural e social de crianças pela sétima arte.
+                    </p>
+                </div>
+
+                <div class="mostra-card">
+                    <h3>🎬 Grandes Clássicos</h3>
+                    <p>
+                        Retrospectiva de obras-primas do cinema mundial, incluindo
+                        homenagem a cineastas importantes para a história do cinema.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="awards" id="premiacoes">
+        <div class="container">
+            <h2 class="section-title">Premiação</h2>
+
+            <div class="awards-grid">
+                <div class="award-item">
+                    <h4>🏆 Grande Prêmio do Júri</h4>
+                    <p>Troféu Tartaruga-Aruanã para Melhor Filme</p>
+                </div>
+                <div class="award-item">
+                    <h4>🎞️ Melhor Direção</h4>
+                    <p>Reconhecimento da excelência na direção cinematográfica</p>
+                </div>
+                <div class="award-item">
+                    <h4>✍️ Melhor Roteiro</h4>
+                    <p>Prêmio para o melhor texto e estrutura narrativa</p>
+                </div>
+                <div class="award-item">
+                    <h4>📷 Melhor Fotografia</h4>
+                    <p>Destaque para a fotografia e linguagem visual</p>
+                </div>
+                <div class="award-item">
+                    <h4>🎭 Melhor Atuação</h4>
+                    <p>Premiação para atrizes e atores destaque</p>
+                </div>
+                <div class="award-item">
+                    <h4>📑 Melhor Curta-Metragem</h4>
+                    <p>Reconhecimento de produções de menor duração</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="activities" id="atividades">
+        <div class="container">
+            <h2 class="section-title">Atividades Complementares</h2>
+
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-icon">💬</div>
+                    <h3>Mesas de Debate</h3>
+                    <p>Conversas com cineastas e produtores nacionais e internacionais</p>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">🎓</div>
+                    <h3>Workshops & Oficinas</h3>
+                    <p>Formação sobre audiovisual em escolas públicas da cidade</p>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">✍️</div>
+                    <h3>Concursos</h3>
+                    <p>Poesia, fotografia e exposição com premiação</p>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">📚</div>
+                    <h3>Rodas de Leitura</h3>
+                    <p>Discussões sobre clássicos literários com temática do mar</p>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">🎵</div>
+                    <h3>Apresentações Musicais</h3>
+                    <p>Artistas locais valorizando a identidade caiçara</p>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon">📖</div>
+                    <h3>Lançamento de Livro</h3>
+                    <p>"Cabo Frio: Filmes, Novelas e Cinemas" — primeira obra dedicada ao cinema municipal</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contato">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>FINCCA 2026</h4>
+                    <p>Festival Internacional de Cinema de Cabo Frio<br>
+                    14 a 17 de Maio • Cabo Frio, RJ</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <p>Coordenação: Marina Makhohl</p>
+                    <a href="tel:+5522981168311" class="footer-link">(22) 98116-8311</a>
+                    <p style="margin-top: 0.75rem; font-size: 0.85rem; opacity: 0.7;">
+                        Associação BEM QUERER<br>
+                        <em>Fomentando a Cultura, Fortalecendo a Comunidade</em>
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <a href="#sobre">Sobre o Festival</a>
+                    <a href="#programacao">Programação</a>
+                    <a href="#premiacoes">Premiações</a>
+                    <a href="#atividades">Atividades</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 FINCCA — Festival Internacional de Cinema de Cabo Frio. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            hamburger.classList.toggle('open', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', false);
+            });
+        });
+    </script>
+</body>
+</html>
