@@ -312,38 +312,133 @@
             background: white;
         }
 
-        .programming-grid {
+        .prog-days {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.75rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
             margin-top: 3rem;
+            align-items: start;
         }
 
-        .mostra-card {
-            background: linear-gradient(135deg, rgba(0, 131, 143, 0.04) 0%, rgba(32, 178, 170, 0.04) 100%);
-            border: 1px solid rgba(32, 178, 170, 0.2);
-            padding: 2rem;
-            border-radius: 12px;
+        .prog-day {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,61,92,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .prog-day:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 32px rgba(0,61,92,0.14);
+        }
+
+        .prog-day-header {
+            padding: 1.25rem 1.5rem;
+            text-align: center;
+        }
+
+        .prog-day:nth-child(1) .prog-day-header { background: linear-gradient(135deg, #00515f, #007a82); }
+        .prog-day:nth-child(2) .prog-day-header { background: linear-gradient(135deg, #005a6e, #00838f); }
+        .prog-day:nth-child(3) .prog-day-header { background: linear-gradient(135deg, #003d5c, #00515f); }
+        .prog-day:nth-child(4) .prog-day-header { background: linear-gradient(135deg, #002a45, #003d5c); }
+
+        .prog-day-num {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            color: white;
+            line-height: 1;
+        }
+
+        .prog-day-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.85);
+            margin-top: 0.2rem;
+        }
+
+        .prog-day-month {
+            font-size: 0.75rem;
+            color: var(--accent-beige);
+            margin-top: 0.1rem;
+            font-weight: 500;
+        }
+
+        .prog-events {
+            padding: 1.25rem;
+            background: linear-gradient(180deg, #f9f7f4 0%, #ffffff 100%);
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .prog-event {
+            border-left: 3px solid var(--accent-turquoise);
+            padding-left: 0.85rem;
+        }
+
+        .prog-event.highlight {
+            border-left-color: var(--accent-beige);
+            background: linear-gradient(90deg, rgba(232,192,138,0.07) 0%, transparent 100%);
+            padding: 0.6rem 0.85rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .prog-event-time {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--primary-teal);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .prog-event-desc {
+            font-size: 0.82rem;
+            color: #444;
+            line-height: 1.5;
+            margin-top: 0.15rem;
+        }
+
+        .prog-event.highlight .prog-event-desc {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .prog-venue {
+            display: inline-block;
+            font-size: 0.7rem;
+            background: rgba(0,131,143,0.1);
+            color: var(--primary-teal);
+            border-radius: 20px;
+            padding: 0.15rem 0.55rem;
+            margin-top: 0.3rem;
+            font-weight: 500;
+        }
+
+        .prog-pdf-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2.5rem;
+            color: var(--primary-teal);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border: 2px solid var(--primary-teal);
+            border-radius: 50px;
+            padding: 0.65rem 1.75rem;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
             transition: all 0.3s ease;
         }
 
-        .mostra-card:hover {
-            border-color: var(--accent-turquoise);
-            box-shadow: 0 8px 30px rgba(32, 178, 170, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .mostra-card h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-dark);
-            font-size: 1.2rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .mostra-card p {
-            color: #555;
-            line-height: 1.8;
-            font-size: 0.95rem;
+        .prog-pdf-link:hover {
+            background: var(--primary-teal);
+            color: white;
         }
 
         /* Inscricoes Section */
@@ -509,6 +604,7 @@
         @media (max-width: 600px) {
             .form-grid-2 { grid-template-columns: 1fr; }
             .inscricao-form { padding: 1.5rem; }
+            .prog-days { grid-template-columns: 1fr; }
         }
 
         /* Edital Section */
@@ -974,10 +1070,13 @@
             }
 
             .about-grid,
-            .programming-grid,
             .activities-grid,
             .footer-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .prog-days {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .awards-grid,
@@ -1145,40 +1244,125 @@
         <div class="container">
             <h2 class="section-title">Programação</h2>
 
-            <div class="programming-grid">
-                <div class="mostra-card">
-                    <h3>🌟 Mostra Internacional</h3>
-                    <p>
-                        Competitiva com os melhores filmes selecionados do mundo.
-                        Filmes com temática do mar de diversas nações em busca do
-                        Grande Prêmio do Júri Tartaruga-Aruanã.
-                    </p>
+            <div class="prog-days">
+
+                <!-- DIA 14 -->
+                <div class="prog-day">
+                    <div class="prog-day-header">
+                        <div class="prog-day-num">14</div>
+                        <div class="prog-day-name">Quinta-feira</div>
+                        <div class="prog-day-month">Maio 2026</div>
+                    </div>
+                    <div class="prog-events">
+                        <div class="prog-event">
+                            <div class="prog-event-time">15h – 18h</div>
+                            <div class="prog-event-desc">Mostra 1</div>
+                            <span class="prog-venue">Cine Scliar</span>
+                        </div>
+                        <div class="prog-event">
+                            <div class="prog-event-time">15h – 18h</div>
+                            <div class="prog-event-desc">Mostra 2</div>
+                            <span class="prog-venue">UERJ</span>
+                        </div>
+                        <div class="prog-event highlight">
+                            <div class="prog-event-time">19h – 22h</div>
+                            <div class="prog-event-desc">🎉 Abertura do FINCCA — banda musical, atração circense do Circolo e telão com vídeos dos filmes</div>
+                            <span class="prog-venue">Praça São Benedito</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="mostra-card">
-                    <h3>🌎 Mostra Latino-Americana</h3>
-                    <p>
-                        Célula competitiva que valoriza a produção audiovisual da América Latina,
-                        promovendo intercâmbio cultural e reconhecimento de talentos regionais.
-                    </p>
+                <!-- DIA 15 -->
+                <div class="prog-day">
+                    <div class="prog-day-header">
+                        <div class="prog-day-num">15</div>
+                        <div class="prog-day-name">Sexta-feira</div>
+                        <div class="prog-day-month">Maio 2026</div>
+                    </div>
+                    <div class="prog-events">
+                        <div class="prog-event">
+                            <div class="prog-event-time">10h – 11h30</div>
+                            <div class="prog-event-desc">Mesa 1 de debate</div>
+                            <span class="prog-venue">Mart</span>
+                        </div>
+                        <div class="prog-event">
+                            <div class="prog-event-time">15h – 20h</div>
+                            <div class="prog-event-desc">Mostra 3 + Mesa 2 de debate</div>
+                            <span class="prog-venue">Cine Scliar</span>
+                        </div>
+                        <div class="prog-event">
+                            <div class="prog-event-time">15h – 20h</div>
+                            <div class="prog-event-desc">Mostra 4 + Mesa 3 de debate</div>
+                            <span class="prog-venue">UERJ</span>
+                        </div>
+                        <div class="prog-event">
+                            <div class="prog-event-time">18h30 – 21h30</div>
+                            <div class="prog-event-desc">Mostra 4</div>
+                            <span class="prog-venue">UVA</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="mostra-card">
-                    <h3>🎠 Mostra Infantil</h3>
-                    <p>
-                        Seleção de animações e filmes infantis de qualidade que
-                        promovem inclusão cultural e social de crianças pela sétima arte.
-                    </p>
+                <!-- DIA 16 -->
+                <div class="prog-day">
+                    <div class="prog-day-header">
+                        <div class="prog-day-num">16</div>
+                        <div class="prog-day-name">Sábado</div>
+                        <div class="prog-day-month">Maio 2026</div>
+                    </div>
+                    <div class="prog-events">
+                        <div class="prog-event">
+                            <div class="prog-event-time">10h – 11h30</div>
+                            <div class="prog-event-desc">Mesa 4 de debate</div>
+                            <span class="prog-venue">Mart</span>
+                        </div>
+                        <div class="prog-event">
+                            <div class="prog-event-time">13h – 18h</div>
+                            <div class="prog-event-desc">Mostra 5 + Mesa 5 de debate</div>
+                            <span class="prog-venue">UVA</span>
+                        </div>
+                        <div class="prog-event">
+                            <div class="prog-event-time">14h – 22h</div>
+                            <div class="prog-event-desc">Mostra 6 e 7</div>
+                            <span class="prog-venue">Cine Scliar</span>
+                        </div>
+                        <div class="prog-event">
+                            <div class="prog-event-time">18h – 22h</div>
+                            <div class="prog-event-desc">Mostra Infantil + Mostra 8</div>
+                            <span class="prog-venue">Gargoá, Tamoios</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="mostra-card">
-                    <h3>🎬 Grandes Clássicos</h3>
-                    <p>
-                        Retrospectiva de obras-primas do cinema mundial, incluindo
-                        homenagem a cineastas importantes para a história do cinema.
-                    </p>
+                <!-- DIA 17 -->
+                <div class="prog-day">
+                    <div class="prog-day-header">
+                        <div class="prog-day-num">17</div>
+                        <div class="prog-day-name">Domingo</div>
+                        <div class="prog-day-month">Maio 2026</div>
+                    </div>
+                    <div class="prog-events">
+                        <div class="prog-event">
+                            <div class="prog-event-time">10h – 11h30</div>
+                            <div class="prog-event-desc">📖 Lançamento do livro "Cabo Frio: Filmes, Novelas e Cinemas"</div>
+                        </div>
+                        <div class="prog-event">
+                            <div class="prog-event-time">14h – 16h</div>
+                            <div class="prog-event-desc">Mostra 9</div>
+                            <span class="prog-venue">Cine Scliar</span>
+                        </div>
+                        <div class="prog-event highlight">
+                            <div class="prog-event-time">17h</div>
+                            <div class="prog-event-desc">🏆 Encerramento — premiação em 10 categorias, troféus, banda e telão com filmes vencedores</div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
+
+            <a href="PROGRAMAÇÃO - FINCCA 2026.pdf" download class="prog-pdf-link">
+                📄 Baixar programação completa em PDF
+            </a>
         </div>
     </section>
 
