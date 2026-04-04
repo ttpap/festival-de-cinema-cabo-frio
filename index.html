@@ -394,6 +394,10 @@
         }
 
         .prog-event {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            column-gap: 0.75rem;
+            align-items: start;
             border-left: 3px solid var(--accent-turquoise);
             padding-left: 0.85rem;
         }
@@ -406,18 +410,23 @@
         }
 
         .prog-event-time {
+            grid-column: 1;
+            grid-row: 1;
             font-size: 0.72rem;
             font-weight: 700;
             color: var(--primary-teal);
             letter-spacing: 0.05em;
             text-transform: uppercase;
+            white-space: nowrap;
+            padding-top: 0.15rem;
         }
 
         .prog-event-desc {
+            grid-column: 2;
+            grid-row: 1;
             font-size: 0.82rem;
             color: #444;
             line-height: 1.5;
-            margin-top: 0.15rem;
         }
 
         .prog-event.highlight .prog-event-desc {
@@ -426,16 +435,20 @@
         }
 
         .prog-venue {
+            grid-column: 2;
+            grid-row: 2;
             display: inline-block;
+            align-self: start;
             font-size: 0.7rem;
             background: rgba(0,131,143,0.1);
             color: var(--primary-teal);
             border-radius: 20px;
             padding: 0.15rem 0.55rem;
-            margin-top: 0.3rem;
+            margin-top: 0.25rem;
             font-weight: 500;
             text-decoration: none;
             transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
         }
 
         a.prog-venue:hover {
@@ -630,26 +643,6 @@
         @media (max-width: 600px) {
             .form-grid-2 { grid-template-columns: 1fr; }
             .inscricao-form { padding: 1.5rem; }
-            .prog-days { grid-template-columns: 1fr; }
-
-            .prog-event {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: baseline;
-                gap: 0.25rem 0.5rem;
-            }
-
-            .prog-event-time {
-                white-space: nowrap;
-            }
-
-            .prog-event-desc {
-                margin-top: 0;
-            }
-
-            .prog-venue {
-                margin-top: 0;
-            }
         }
 
         /* Edital Section */
@@ -1316,6 +1309,8 @@
         }
 
         @media (max-width: 480px) {
+            .prog-days { grid-template-columns: 1fr; }
+
             .awards-grid,
             .stats-grid,
             .highlights,
@@ -1945,6 +1940,9 @@
                     <img src="logo-uerj.png" alt="UERJ">
                 </div>
                 <div class="apoiador-logo">
+                    <img src="LOGO-CMCS.png" alt="Instituto Cultural Casa Museu Carlos Scliar">
+                </div>
+                <div class="apoiador-logo">
                     <img src="logo-uva.png" alt="UVA — Universidade Veiga de Almeida">
                 </div>
                 <div class="apoiador-logo">
@@ -1953,7 +1951,6 @@
                 <div class="apoiador-logo">
                     <img src="logo-secec.png" alt="SECEC — Secretaria de Estado de Cultura e Economia Criativa">
                 </div>
-                <span class="apoiador-tag">🎬 Casa Museu Carlos Scliar</span>
             </div>
         </div>
     </section>
