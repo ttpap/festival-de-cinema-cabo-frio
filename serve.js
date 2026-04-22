@@ -32,7 +32,9 @@ http.createServer((req, res) => {
       return;
     }
     const ext = path.extname(file);
-    res.writeHead(200, { 'Content-Type': MIME[ext] || 'application/octet-stream' });
+    const headers = { 'Content-Type': MIME[ext] || 'application/octet-stream' };
+    if (ext === '.html') headers['Cache-Control'] = 'no-store';
+    res.writeHead(200, headers);
     res.end(data);
   });
 }).listen(PORT, '127.0.0.1', () => {
