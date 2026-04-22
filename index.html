@@ -134,6 +134,12 @@
             transform: translateY(-7px) rotate(-45deg);
         }
 
+        @keyframes drift-texture {
+            0%   { background-position: 50% 60%; }
+            50%  { background-position: 55% 70%; }
+            100% { background-position: 50% 60%; }
+        }
+
         /* Hero Section */
         .hero {
             margin-top: 70px;
@@ -141,6 +147,7 @@
                 radial-gradient(ellipse 120% 80% at 50% 0%,   #001f3f 0%, transparent 60%),
                 radial-gradient(ellipse 100% 60% at 80% 100%, #003d5c 0%, transparent 55%),
                 radial-gradient(ellipse 80%  50% at 10% 80%,  #00515a 0%, transparent 50%),
+                url('textura-mar4.png') center 65% / 120% auto no-repeat,
                 linear-gradient(170deg, #001a2e 0%, #00384f 40%, #005a6e 75%, #007a82 100%);
             position: relative;
             overflow: hidden;
@@ -148,6 +155,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            animation: drift-texture 18s ease-in-out infinite;
         }
 
         /* Ondas de luz submarinas */
@@ -187,7 +195,6 @@
             height: auto;
             display: block;
             margin: 0 auto 2rem;
-            /* strip the black bg from the PNG so it blends naturally */
             mix-blend-mode: screen;
         }
 
@@ -1342,7 +1349,7 @@
     <header>
         <nav aria-label="Navegação principal">
             <div class="logo">
-                <img src="logo.png" alt="FINCCA">
+                <img src="logo-fincca1.png" alt="FINCCA">
             </div>
             <div class="nav-social">
                 <a href="https://www.instagram.com/finccafestival" target="_blank" rel="noopener" aria-label="Instagram do FINCCA">
@@ -1372,7 +1379,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <img src="logo.png" alt="FINCCA — Festival Internacional de Cinema de Cabo Frio" class="hero-logo-img">
+            <img src="logo-fincca2.png" alt="FINCCA — Festival Internacional de Cinema de Cabo Frio" class="hero-logo-img">
             <p class="date">14 — 17 de Maio &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Cabo Frio, RJ</p>
             <div class="hero-ctas">
                 <a href="#sobre" class="cta-button">Descubra o Festival</a>
@@ -1380,6 +1387,8 @@
             </div>
         </div>
     </section>
+
+    <div style="line-height:0;overflow:hidden;height:120px;"><img src="textura-mar3.png" alt="" aria-hidden="true" style="width:100%;height:120px;object-fit:cover;object-position:center;display:block;opacity:0.75;"></div>
 
     <!-- About Section -->
     <section class="about" id="sobre">
@@ -1907,7 +1916,7 @@
 
     <!-- Apoiadores -->
     <section class="apoiadores">
-        <img src="barra-logos.png" alt="Realização: Associação Bem Querer · Apoio: Flavio Serafini, SECEC, Governo do Estado do Rio de Janeiro" class="barra-logos-img">
+        <img src="barra-logos-transparente.png" alt="Realização: Associação Bem Querer · Apoio: Flavio Serafini, SECEC, Governo do Estado do Rio de Janeiro" class="barra-logos-img">
         <div class="apoio-institucional">
             <p class="apoiadores-title">Apoio Institucional</p>
             <div class="apoiadores-list">
@@ -1933,7 +1942,7 @@
                     <img src="logo-folha-dos-lagos.png" alt="Folha dos Lagos">
                 </div>
                 <div class="apoiador-logo">
-                    <img src="logo-convention.png" alt="Convention">
+                    <img src="convention.png" alt="Convention">
                 </div>
             </div>
         </div>
