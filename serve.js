@@ -17,6 +17,7 @@ const MIME = {
   '.ico':  'image/x-icon',
   '.woff2':'font/woff2',
   '.woff': 'font/woff',
+  '.pdf':  'application/pdf',
 };
 
 http.createServer((req, res) => {
@@ -34,6 +35,7 @@ http.createServer((req, res) => {
     const ext = path.extname(file);
     const headers = { 'Content-Type': MIME[ext] || 'application/octet-stream' };
     if (ext === '.html') headers['Cache-Control'] = 'no-store';
+    if (ext === '.pdf') headers['Content-Disposition'] = 'inline';
     res.writeHead(200, headers);
     res.end(data);
   });
