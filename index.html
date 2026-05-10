@@ -54,81 +54,11 @@
             overflow-x: hidden;
         }
 
-        /* Vote banner */
-        #vote-banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1001;
-            background: linear-gradient(135deg, #002a45 0%, #004d6e 60%, #005a6e 100%);
-            border-bottom: 2px solid #e8c08a;
-            padding: 0 1.5rem;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
-        #vote-banner .banner-text {
-            color: #fff;
-            font-size: 0.85rem;
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            letter-spacing: 0.01em;
-            white-space: nowrap;
-        }
-        #vote-banner .banner-text strong {
-            color: #e8c08a;
-            font-weight: 600;
-        }
-        #vote-banner .banner-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: #e8c08a;
-            color: #001f35;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            padding: 0.35rem 1rem;
-            border-radius: 100px;
-            text-decoration: none;
-            transition: background 0.2s, transform 0.15s;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-        #vote-banner .banner-cta:hover {
-            background: #f0d0a0;
-            transform: scale(1.04);
-        }
-        #vote-banner .banner-close {
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: rgba(255,255,255,0.5);
-            font-size: 1.1rem;
-            cursor: pointer;
-            padding: 0.25rem 0.4rem;
-            line-height: 1;
-            transition: color 0.2s;
-        }
-        #vote-banner .banner-close:hover { color: #fff; }
-        @media (max-width: 600px) {
-            #vote-banner .banner-text { display: none; }
-            #vote-banner { gap: 0; justify-content: center; }
-        }
-
-        /* Header */
+/* Header */
         header {
             position: fixed;
             width: 100%;
-            top: 48px;
+            top: 0;
             z-index: 1000;
             background: linear-gradient(135deg, #000e1a 0%, #001f35 100%);
             padding: 1rem 2rem;
@@ -315,6 +245,71 @@
             border-color: rgba(255,255,255,0.7);
             color: white;
             box-shadow: none;
+        }
+
+        /* Hero vote CTA */
+        .hero-vote-cta {
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: center;
+        }
+        .hero-vote-box {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            background: rgba(232, 192, 138, 0.07);
+            border: 1.5px solid rgba(232, 192, 138, 0.45);
+            border-radius: 20px;
+            padding: 1rem 1.5rem;
+            max-width: 560px;
+            width: 100%;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 0 0 1px rgba(232,192,138,0.08);
+        }
+        .hero-vote-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        .hero-vote-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+        .hero-vote-text strong {
+            color: var(--accent-beige);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+        .hero-vote-text span {
+            color: rgba(255,255,255,0.65);
+            font-size: 0.78rem;
+        }
+        .hero-vote-btn {
+            flex-shrink: 0;
+            display: inline-block;
+            background: var(--accent-beige);
+            color: #001a2e;
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            transition: all 0.25s;
+            box-shadow: 0 4px 16px rgba(232,192,138,0.3);
+            white-space: nowrap;
+        }
+        .hero-vote-btn:hover {
+            background: #f0d0a0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(232,192,138,0.45);
+        }
+        @media (max-width: 500px) {
+            .hero-vote-box { flex-direction: column; text-align: center; gap: 0.75rem; }
         }
 
         /* Section Container */
@@ -1491,15 +1486,6 @@
 </head>
 <body>
 
-    <!-- Banner de votação -->
-    <div id="vote-banner">
-        <span class="banner-text">🎬 <strong>Júri Popular FINCCA 2026</strong> — Vote no seu filme favorito · Votação aberta em julho</span>
-        <a href="https://juradosfestivaldecinemacabofrio.vercel.app/" target="_blank" rel="noopener" class="banner-cta">
-            Votar agora →
-        </a>
-        <button class="banner-close" onclick="document.getElementById('vote-banner').style.display='none'; document.querySelector('header').style.top='0'" aria-label="Fechar">✕</button>
-    </div>
-
     <!-- Header -->
     <header>
         <nav aria-label="Navegação principal">
@@ -1539,6 +1525,17 @@
             <div class="hero-ctas">
                 <a href="#sobre" class="cta-button">Descubra o Festival</a>
                 <a href="#programacao" class="cta-button secondary">Ver Programação</a>
+            </div>
+
+            <div class="hero-vote-cta">
+                <div class="hero-vote-box">
+                    <div class="hero-vote-icon">🎬</div>
+                    <div class="hero-vote-text">
+                        <strong>Júri Popular — Vote agora!</strong>
+                        <span>Escolha seu filme favorito · Votação aberta em julho</span>
+                    </div>
+                    <a href="https://juradosfestivaldecinemacabofrio.vercel.app/" target="_blank" rel="noopener" class="hero-vote-btn">Votar →</a>
+                </div>
             </div>
         </div>
     </section>
