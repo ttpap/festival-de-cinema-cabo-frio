@@ -54,11 +54,81 @@
             overflow-x: hidden;
         }
 
+        /* Vote banner */
+        #vote-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1001;
+            background: linear-gradient(135deg, #002a45 0%, #004d6e 60%, #005a6e 100%);
+            border-bottom: 2px solid #e8c08a;
+            padding: 0 1.5rem;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        #vote-banner .banner-text {
+            color: #fff;
+            font-size: 0.85rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+        }
+        #vote-banner .banner-text strong {
+            color: #e8c08a;
+            font-weight: 600;
+        }
+        #vote-banner .banner-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #e8c08a;
+            color: #001f35;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.35rem 1rem;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        #vote-banner .banner-cta:hover {
+            background: #f0d0a0;
+            transform: scale(1.04);
+        }
+        #vote-banner .banner-close {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.5);
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 0.25rem 0.4rem;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        #vote-banner .banner-close:hover { color: #fff; }
+        @media (max-width: 600px) {
+            #vote-banner .banner-text { display: none; }
+            #vote-banner { gap: 0; justify-content: center; }
+        }
+
         /* Header */
         header {
             position: fixed;
             width: 100%;
-            top: 0;
+            top: 48px;
             z-index: 1000;
             background: linear-gradient(135deg, #000e1a 0%, #001f35 100%);
             padding: 1rem 2rem;
@@ -1420,6 +1490,16 @@
     </style>
 </head>
 <body>
+
+    <!-- Banner de votação -->
+    <div id="vote-banner">
+        <span class="banner-text">🎬 <strong>Júri Popular FINCCA 2026</strong> — Vote no seu filme favorito · Votação aberta em julho</span>
+        <a href="https://juradosfestivaldecinemacabofrio.vercel.app/" target="_blank" rel="noopener" class="banner-cta">
+            Votar agora →
+        </a>
+        <button class="banner-close" onclick="document.getElementById('vote-banner').style.display='none'; document.querySelector('header').style.top='0'" aria-label="Fechar">✕</button>
+    </div>
+
     <!-- Header -->
     <header>
         <nav aria-label="Navegação principal">
