@@ -780,6 +780,132 @@
             line-height: 1.6;
         }
 
+        /* Winners Section */
+        .winner-grand {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: rgba(255,255,255,0.06);
+            border-radius: 16px;
+            border: 2px solid rgba(232,192,138,0.5);
+            overflow: hidden;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+        }
+        .winner-grand-img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            display: block;
+        }
+        .winner-grand-body {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        .winner-grand-badge {
+            display: inline-block;
+            background: var(--accent-beige);
+            color: #001a2e;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            width: fit-content;
+        }
+        .winner-grand-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: white;
+            line-height: 1.2;
+        }
+        .winner-grand-dir { font-size: 1rem; opacity: 0.85; color: white; }
+        .winner-grand-country { font-size: 0.85rem; opacity: 0.55; color: white; font-style: italic; }
+        .winner-grand-desc { font-size: 0.92rem; opacity: 0.75; line-height: 1.65; color: white; margin-top: 0.25rem; }
+
+        .winners-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .winner-card {
+            background: rgba(255,255,255,0.07);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .winner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+        }
+        .winner-card-img {
+            width: 100%;
+            height: 185px;
+            object-fit: cover;
+            display: block;
+        }
+        .winner-card-body { padding: 1.25rem; }
+        .winner-card-category {
+            color: var(--accent-beige);
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.4rem;
+        }
+        .winner-card-film {
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.2rem;
+            line-height: 1.3;
+        }
+        .winner-card-dir { font-size: 0.82rem; opacity: 0.7; color: white; margin-bottom: 0.5rem; }
+        .winner-card-desc { font-size: 0.79rem; opacity: 0.6; line-height: 1.55; color: white; }
+
+        .winners-pdf-cta {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: rgba(0,0,0,0.25);
+            border-radius: 16px;
+            border: 1px solid rgba(232,192,138,0.2);
+        }
+        .winners-pdf-cta p { font-size: 1rem; opacity: 0.8; margin-bottom: 1.5rem; color: white; }
+        .winners-pdf-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--accent-beige);
+            color: #001a2e;
+            font-weight: 700;
+            font-size: 0.92rem;
+            text-decoration: none;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            transition: all 0.25s;
+            letter-spacing: 0.03em;
+        }
+        .winners-pdf-btn:hover {
+            background: #f0d0a0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(232,192,138,0.4);
+        }
+        @media (max-width: 900px) {
+            .winner-grand { grid-template-columns: 1fr; }
+            .winner-grand-img { height: 240px; }
+            .winners-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 550px) {
+            .winners-grid { grid-template-columns: 1fr; }
+            .winner-grand-body { padding: 1.5rem; }
+        }
+
         /* Activities Section */
         .activities {
             padding: 6rem 2rem;
@@ -1510,7 +1636,7 @@
                 <li><a href="#programacao">Programação</a></li>
                 <li><a href="#catalogo">Catálogo</a></li>
                 <li><a href="#edital">Edital</a></li>
-                <li><a href="#premiacoes">Premiações</a></li>
+                <li><a href="#premiacoes">Vencedores</a></li>
                 <li><a href="#atividades">Atividades</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
@@ -1917,66 +2043,163 @@
     <!-- Awards Section -->
     <section class="awards" id="premiacoes">
         <div class="container">
-            <h2 class="section-title">Premiação</h2>
+            <h2 class="section-title">Vencedores 2026</h2>
 
-            <div class="awards-grid">
-                <div class="award-item">
-                    <h4>🏆 Melhor Filme de Longa-Metragem</h4>
-                    <p>Grande Prêmio Tartaruga-Aruanã</p>
-                </div>
-                <div class="award-item">
-                    <h4>🇧🇷 Melhor Filme Nacional de Longa-Metragem</h4>
-                    <p>Melhor produção brasileira de longa-metragem</p>
-                </div>
-                <div class="award-item">
-                    <h4>❤️ Melhor Filme Júri Popular</h4>
-                    <p>Escolha do público</p>
-                </div>
-                <div class="award-item">
-                    <h4>🎞️ Melhor Direção de Longa-Metragem</h4>
-                    <p>Reconhecimento da excelência na direção cinematográfica</p>
-                </div>
-                <div class="award-item">
-                    <h4>🎭 Melhor Atuação (Ator ou Atriz) de Longa-Metragem</h4>
-                    <p>Premiação para atriz ou ator destaque</p>
-                </div>
-                <div class="award-item">
-                    <h4>✍️ Melhor Roteiro de Longa-Metragem</h4>
-                    <p>Melhor texto e estrutura narrativa</p>
-                </div>
-                <div class="award-item">
-                    <h4>📷 Melhor Direção de Fotografia de Longa-Metragem</h4>
-                    <p>Destaque para a fotografia e linguagem visual</p>
-                </div>
-                <div class="award-item">
-                    <h4>🎥 Melhor Documentário de Longa-Metragem</h4>
-                    <p>Melhor obra de não-ficção</p>
-                </div>
-                <div class="award-item">
-                    <h4>🎨 Melhor Direção de Arte de Longa-Metragem</h4>
-                    <p>Destaque na direção de arte e design de produção</p>
-                </div>
-                <div class="award-item">
-                    <h4>🎬 Melhor Curta-Metragem de Ficção</h4>
-                    <p>Melhor curta-metragem de ficção</p>
-                </div>
-                <div class="award-item">
-                    <h4>📽️ Melhor Curta-Metragem Documentário</h4>
-                    <p>Melhor curta-metragem documental</p>
-                </div>
-                <div class="award-item">
-                    <h4>✏️ Melhor Curta-Metragem de Animação</h4>
-                    <p>Melhor curta-metragem de animação</p>
-                </div>
-                <div class="award-item">
-                    <h4>✒️ Melhor Poesia</h4>
-                    <p>Melhor obra do concurso de poesia</p>
-                </div>
-                <div class="award-item">
-                    <h4>🖼️ Melhor Fotografia</h4>
-                    <p>Melhor obra do concurso de fotografia</p>
+            <!-- Grande Prêmio em destaque -->
+            <div class="winner-grand">
+                <img src="vencedor-nevoa.png" alt="Névoa (Fog)" class="winner-grand-img">
+                <div class="winner-grand-body">
+                    <span class="winner-grand-badge">🏆 Grande Prêmio Tartaruga Aruanã</span>
+                    <h3 class="winner-grand-title">"Névoa"</h3>
+                    <p class="winner-grand-dir">de Natalia Gugueva</p>
+                    <p class="winner-grand-country">Fog · Rússia</p>
+                    <p class="winner-grand-desc">Uma história sobre a difícil escolha de uma mulher entre seu homem amado e sua filha. Filmado no norte da Rússia, na Tundra Ártica, em condições climáticas adversas na estação meteorológica mais antiga do mundo — com mais de 130 anos de funcionamento.</p>
                 </div>
             </div>
+
+            <!-- Grade de vencedores -->
+            <div class="winners-grid">
+
+                <div class="winner-card">
+                    <img src="vencedor-fortaleza-hotel.png" alt="Fortaleza Hotel" class="winner-card-img">
+                    <div class="winner-card-body">
+                        <p class="winner-card-category">🇧🇷 Melhor Longa-Metragem Nacional</p>
+                        <h4 class="winner-card-film">"Fortaleza Hotel"</h4>
+                        <p class="winner-card-dir">de Armando Praça · Brasil</p>
+                        <p class="winner-card-desc">Premiado duplamente no FINCCA 2026. Uma produção nacional que emocionou júri e público com sua humanidade e força narrativa.</p>
+                    </div>
+                </div>
+
+                <div class="winner-card">
+                    <img src="vencedor-quando-rio.png" alt="Quando o Rio Vira Mar" class="winner-card-img">
+                    <div class="winner-card-body">
+                        <p class="winner-card-category">🎞️ Melhor Direção de Longa-Metragem</p>
+                        <h4 class="winner-card-film">"Quando o Rio Vira Mar"</h4>
+                        <p class="winner-card-dir">Pere Vilà Barceló · Espanha</p>
+                        <p class="winner-card-desc">Resultado de anos de trabalho com associações de mulheres que deram testemunho doloroso de situações de violência de gênero.</p>
+                    </div>
+                </div>
+
+                <div class="winner-card">
+                    <img src="vencedor-clau-hernandez.png" alt="Clau Hernández" class="winner-card-img">
+                    <div class="winner-card-body">
+                        <p class="winner-card-category">🎭 Melhor Atuação de Longa-Metragem</p>
+                        <h4 class="winner-card-film">Clau Hernández</h4>
+                        <p class="winner-card-dir">"Quando o Rio Vira Mar" · Espanha</p>
+                        <p class="winner-card-desc">Atuação dedicada a todas as mulheres que compartilharam suas histórias de sobrevivência à violência de gênero.</p>
+                    </div>
+                </div>
+
+                <div class="winner-card">
+                    <img src="vencedor-nevoa-roteiro.png" alt="Névoa — Roteiro" class="winner-card-img">
+                    <div class="winner-card-body">
+                        <p class="winner-card-category">✍️ Melhor Roteiro de Longa-Metragem</p>
+                        <h4 class="winner-card-film">Natalia Gugueva</h4>
+                        <p class="winner-card-dir">"Névoa" · Rússia</p>
+                        <p class="winner-card-desc">A mesma autora do Grande Prêmio vence também pelo roteiro — uma narrativa de amor, ódio, culpa e perdão entre pessoas próximas.</p>
+                    </div>
+                </div>
+
+                <div class="winner-card">
+                    <img src="vencedor-amalgama.png" alt="Amálgama" class="winner-card-img">
+                    <div class="winner-card-body">
+                        <p class="winner-card-category">📷 Melhor Direção de Fotografia</p>
+                        <h4 class="winner-card-film">Lucas Mancini</h4>
+                        <p class="winner-card-dir">"Amálgama" · Brasil</p>
+                        <p class="winner-card-desc">Fotografia premiada pela linguagem visual marcante e poética que cria uma atmosfera singular no filme.</p>
+                    </div>
+                </div>
+
+                <div class="winner-card">
+                    <img src="vencedor-fortaleza-arte.png" alt="Fortaleza Hotel — Arte" class="winner-card-img">
+                    <div class="winner-card-body">
+                        <p class="winner-card-category">🎨 Melhor Direção de Arte</p>
+                        <h4 class="winner-card-film">Diogo Costa</h4>
+                        <p class="winner-card-dir">"Fortaleza Hotel" · Brasil</p>
+                        <p class="winner-card-desc">Design de produção que constrói universos visuais únicos e transporta o espectador para dentro da narrativa.</p>
+                    </div>
+                </div>
+
+                <div class="winner-card">
+                    <img src="vencedor-amazonia-azul.png" alt="Amazônia Azul" class="winner-card-img">
+                    <div class="winner-card-body">
+                        <p class="winner-card-category">🎥 Melhor Longa-Documentário</p>
+                        <h4 class="winner-card-film">"Amazônia Azul"</h4>
+                        <p class="winner-card-dir">de Sérgio Gag · Brasil</p>
+                        <p class="winner-card-desc">Um mergulho na biodiversidade marinha brasileira e na urgência da preservação dos oceanos que nos cercam.</p>
+                    </div>
+                </div>
+
+                <div class="winner-card">
+                    <img src="thumb-o-salto.png" alt="O Salto" class="winner-card-img">
+                    <div class="winner-card-body">
+                        <p class="winner-card-category">❤️ Melhor Filme do Júri Popular</p>
+                        <h4 class="winner-card-film">"O Salto"</h4>
+                        <p class="winner-card-dir">de Camilla Trigona · Brasil</p>
+                        <p class="winner-card-desc">O favorito do público — um olhar sensível e verdadeiro sobre infância, coragem e superação dos próprios limites.</p>
+                    </div>
+                </div>
+
+                <div class="winner-card">
+                    <img src="vencedor-amare.png" alt="A.Mare" class="winner-card-img">
+                    <div class="winner-card-body">
+                        <p class="winner-card-category">🎬 Melhor Curta-Metragem de Ficção</p>
+                        <h4 class="winner-card-film">"A.Mare"</h4>
+                        <p class="winner-card-dir">de Rodrigo Campos · Brasil</p>
+                        <p class="winner-card-desc">Curta premiada pela sua delicadeza narrativa e pela beleza visual que dialoga com a temática do mar.</p>
+                    </div>
+                </div>
+
+                <div class="winner-card">
+                    <img src="vencedor-vida-pedra.png" alt="A Vida que Brota da Pedra" class="winner-card-img">
+                    <div class="winner-card-body">
+                        <p class="winner-card-category">📽️ Melhor Curta-Documentário</p>
+                        <h4 class="winner-card-film">"A Vida que Brota da Pedra"</h4>
+                        <p class="winner-card-dir">de Maria Fernanda Quintela · Brasil</p>
+                        <p class="winner-card-desc">Documentário que celebra a vida, a resistência e a identidade cultural da região de Cabo Frio.</p>
+                    </div>
+                </div>
+
+                <div class="winner-card">
+                    <img src="vencedor-praia-liberdade.png" alt="Praia Liberdade" class="winner-card-img">
+                    <div class="winner-card-body">
+                        <p class="winner-card-category">✏️ Melhor Curta-Metragem de Animação</p>
+                        <h4 class="winner-card-film">"Praia Liberdade"</h4>
+                        <p class="winner-card-dir">de Luís Carlos Toloza · Espanha</p>
+                        <p class="winner-card-desc">Playa Libertad — animação poética sobre liberdade, solidão e o encontro transformador com o mar.</p>
+                    </div>
+                </div>
+
+                <div class="winner-card">
+                    <img src="vencedor-murmurio.png" alt="Murmúrio Ondulante" class="winner-card-img">
+                    <div class="winner-card-body">
+                        <p class="winner-card-category">✒️ Melhor Poesia</p>
+                        <h4 class="winner-card-film">"Murmúrio Ondulante"</h4>
+                        <p class="winner-card-dir">de João Pedro Marins · Brasil</p>
+                        <p class="winner-card-desc">Poesia premiada que captura os ritmos, a força e a memória do mar em versos de rara sensibilidade.</p>
+                    </div>
+                </div>
+
+                <div class="winner-card">
+                    <img src="vencedor-sol-ou-lua.png" alt="Sol ou Lua?" class="winner-card-img">
+                    <div class="winner-card-body">
+                        <p class="winner-card-category">🖼️ Melhor Fotografia</p>
+                        <h4 class="winner-card-film">"Sol ou Lua?"</h4>
+                        <p class="winner-card-dir">de Raphael Paz · Brasil</p>
+                        <p class="winner-card-desc">Fotografia premiada pela composição singular — uma silhueta entre o sol e o mar que suspende o tempo.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Download PDF -->
+            <div class="winners-pdf-cta">
+                <p>Confira o caderno completo com depoimentos dos realizadores e imagens da cerimônia</p>
+                <a href="vencedores-fincca-2026.pdf" download class="winners-pdf-btn">
+                    📄 Baixar Caderno de Vencedores (PDF)
+                </a>
+            </div>
+
         </div>
     </section>
 
@@ -2098,7 +2321,7 @@
                     <h4>Navegação</h4>
                     <a href="#sobre">Sobre o Festival</a>
                     <a href="#programacao">Programação</a>
-                    <a href="#premiacoes">Premiações</a>
+                    <a href="#premiacoes">Vencedores</a>
                     <a href="#atividades">Atividades</a>
                 </div>
             </div>
