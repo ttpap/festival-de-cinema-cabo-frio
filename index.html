@@ -1075,6 +1075,120 @@
             .venues-grid { grid-template-columns: 1fr; }
         }
 
+        /* Termo de Fomento */
+        .termo-fomento {
+            background: #f4f1ec;
+            border-top: 3px solid rgba(0,61,92,0.12);
+            padding: 3rem 2rem;
+        }
+
+        .termo-fomento-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .termo-fomento-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .termo-fomento-logo {
+            height: 64px;
+            width: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .termo-fomento-title-wrap {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .termo-fomento-label {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--primary-teal);
+            margin-bottom: 0.3rem;
+        }
+
+        .termo-fomento-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1.3;
+        }
+
+        .termo-fomento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem 2rem;
+            font-size: 0.82rem;
+            color: #444;
+            margin-bottom: 1.25rem;
+        }
+
+        .termo-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .termo-item-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #999;
+        }
+
+        .termo-item-value {
+            color: var(--primary-dark);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .termo-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(0,61,92,0.1);
+        }
+
+        .termo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-teal);
+            text-decoration: none;
+            border: 1.5px solid rgba(0,131,143,0.3);
+            border-radius: 50px;
+            padding: 0.4rem 1rem;
+            transition: all 0.2s;
+        }
+
+        .termo-link:hover {
+            background: var(--primary-teal);
+            color: white;
+            border-color: var(--primary-teal);
+        }
+
+        @media (max-width: 680px) {
+            .termo-fomento-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 420px) {
+            .termo-fomento-grid { grid-template-columns: 1fr; }
+        }
+
         /* Footer */
         footer {
             background: var(--primary-dark);
@@ -2287,6 +2401,67 @@
                 <div class="apoiador-logo">
                     <img src="logo-ecobuzios.png" alt="EcoBúzios">
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Termo de Fomento -->
+    <section class="termo-fomento">
+        <div class="termo-fomento-inner">
+            <div class="termo-fomento-header">
+                <img src="logo-secec.png" alt="Secretaria de Estado de Cultura e Economia Criativa do RJ" class="termo-fomento-logo">
+                <div class="termo-fomento-title-wrap">
+                    <p class="termo-fomento-label">Transparência · Termo de Fomento Celebrado</p>
+                    <h3 class="termo-fomento-title">Festival Internacional De Cinema De Cabo Frio E A Impressão De Livro Inédito Sobre O Cinema Na Cidade</h3>
+                </div>
+            </div>
+
+            <div class="termo-fomento-grid">
+                <div class="termo-item">
+                    <span class="termo-item-label">OSC</span>
+                    <span class="termo-item-value">Associação Bem Querer</span>
+                </div>
+                <div class="termo-item">
+                    <span class="termo-item-label">CNPJ</span>
+                    <span class="termo-item-value">06.256.850/0001-31</span>
+                </div>
+                <div class="termo-item">
+                    <span class="termo-item-label">Administração Pública</span>
+                    <span class="termo-item-value">Secretaria de Estado de Cultura e Economia Criativa</span>
+                </div>
+                <div class="termo-item">
+                    <span class="termo-item-label">Número da Emenda</span>
+                    <span class="termo-item-value">2565</span>
+                </div>
+                <div class="termo-item">
+                    <span class="termo-item-label">Parlamentar</span>
+                    <span class="termo-item-value">Flavio Serafini</span>
+                </div>
+                <div class="termo-item">
+                    <span class="termo-item-label">Nº Plano de Trabalho (CONVERJ)</span>
+                    <span class="termo-item-value">1235</span>
+                </div>
+                <div class="termo-item">
+                    <span class="termo-item-label">Número do Termo de Fomento</span>
+                    <span class="termo-item-value">09/2025 (1235 – CONVERJ)</span>
+                </div>
+                <div class="termo-item">
+                    <span class="termo-item-label">Valor do Projeto</span>
+                    <span class="termo-item-value">R$ 80.000,00</span>
+                </div>
+                <div class="termo-item">
+                    <span class="termo-item-label">Processo SEI</span>
+                    <span class="termo-item-value">SEI-180001/002011/2025</span>
+                </div>
+            </div>
+
+            <div class="termo-links">
+                <a href="http://www.converj.rj.gov.br/converj/servlet/adconsultarwebconvenios" target="_blank" rel="noopener" class="termo-link">
+                    🔗 Consultar no CONVERJ
+                </a>
+                <a href="https://www.ioerj.com.br/portal/modules/conteudoonline/mostra_edicao.php?session=VW10TmVYOVZWGxSYW10MFRXcFZIRTlUTURCT2FtaERURIZGTWswdiNYUk5nMWVOVFVYSYVJrMTZaM2RTVkdjd1RWUmpNaZlVUVhoTlZGRjZUVUU5UFE9PQ==" target="_blank" rel="noopener" class="termo-link">
+                    📄 Publicação DOERJ (02/12/2025)
+                </a>
             </div>
         </div>
     </section>
